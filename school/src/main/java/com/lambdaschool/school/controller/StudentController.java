@@ -100,6 +100,7 @@ public class StudentController
 
     @ApiOperation(value = "Updates an existing Student.", response = void.class)
     @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Student updated Successfully", response = void.class),
             @ApiResponse(code = 400, message = "Please send the correct body of data to update a student", response = void.class),
             @ApiResponse(code = 500, message = "Error updating student", response = ErrorDetail.class)
     } )
@@ -117,7 +118,7 @@ public class StudentController
 
     @ApiOperation(value = "Deletes an existing Student.", response = void.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Please send the correct body of data to update a student", response = void.class),
+            @ApiResponse(code = 200, message = "Student deleted Successfully", response = void.class),
             @ApiResponse(code = 500, message = "Error deleting student", response = ErrorDetail.class)
     } )
     @DeleteMapping("/student/{studentid}")
