@@ -67,7 +67,7 @@ public class StudentController
             @ApiResponse(code = 404, message = "Student Not Found", response = ErrorDetail.class)})
     @GetMapping(value = "/student/{studentid}",
                 produces = {"application/json"})
-    public ResponseEntity<?> getStudentById(
+    public ResponseEntity<?> getStudentById(@ApiParam(value = "Student Id", required = true, example = "1")
             @PathVariable
                     Long StudentId)
     {
@@ -108,6 +108,7 @@ public class StudentController
     public ResponseEntity<?> updateStudent(
             @RequestBody
                     Student updateStudent,
+            @ApiParam(value = "Student Id", required = true, example = "1")
             @PathVariable
                     long Studentid)
     {
@@ -123,6 +124,7 @@ public class StudentController
     } )
     @DeleteMapping("/student/{studentid}")
     public ResponseEntity<?> deleteStudentById(
+            @ApiParam(value = "Student Id", required = true, example = "1")
             @PathVariable
                     long Studentid)
     {
