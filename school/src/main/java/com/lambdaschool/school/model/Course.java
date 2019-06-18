@@ -31,7 +31,7 @@ public class Course
 //    @JsonView(View.CoursesOnly.class)
     private Instructor instructor;
 
-    @ApiModelProperty(name = "students", value = "List of Students taking the Course", required = false, example = "JavaScript, Python")
+    @ApiModelProperty(name = "students", value = "List of Students taking the Course", required = false)
     @ManyToMany(mappedBy = "courses")
     @JsonIgnoreProperties("courses")
     private List<Student> students = new ArrayList<>();
