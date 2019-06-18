@@ -10,4 +10,5 @@ import java.util.List;
 public interface StudentRepository extends PagingAndSortingRepository<Student, Long>
 {
     List<Student> findByStudnameContainingIgnoreCase(String name);
+
 }

@@ -48,6 +48,13 @@ public class StudentController
         return new ResponseEntity<>(myStudents, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/student/namelike/{name}", produces = {"application/json"})
+    public ResponseEntity<?> getStudentByNameContaining(@PathVariable String name)
+    {
+        List<Student> myStudents = studentService.findStudentByNameLike(name);
+        return new ResponseEntity<>(myStudents, HttpStatus.OK);
+    }
+
     @GetMapping(value = "/Student/{StudentId}",
                 produces = {"application/json"})
     public ResponseEntity<?> getStudentById(
@@ -57,17 +64,6 @@ public class StudentController
         Student r = studentService.findStudentById(StudentId);
         return new ResponseEntity<>(r, HttpStatus.OK);
     }
-
-
-    @GetMapping(value = "/student/namelike/{name}",
-                produces = {"application/json"})
-    public ResponseEntity<?> getStudentByNameContaining(
-            @PathVariable String name)
-    {
-        List<Student> myStudents = studentService.findStudentByNameLike(name);
-        return new ResponseEntity<>(myStudents, HttpStatus.OK);
-    }
-
 
     @PostMapping(value = "/Student",
                  consumes = {"application/json"},
