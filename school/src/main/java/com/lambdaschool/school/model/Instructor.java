@@ -11,13 +11,16 @@ import java.util.List;
 @Table(name = "instructor")
 public class Instructor
 {
-    @ApiModelProperty(name = "restaurantid", value = "Primary key for Restaurant", required = true, example = "1")
+    @ApiModelProperty(name = "instructid", value = "Primary key for Instructor", required = true, example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long instructid;
 
+    @ApiModelProperty(name = "instructname", value = "Instructor's Name", required = true, example = "John")
     private String instructname;
 
+    //there is no example on this one left it blank because the example is a list...
+    @ApiModelProperty(name = "courses", value = "Courses the Instructor teaches", required = true)
     @OneToMany(mappedBy = "instructor")
     @JsonIgnoreProperties("instructors")
     private List<Course> courses = new ArrayList<>();
